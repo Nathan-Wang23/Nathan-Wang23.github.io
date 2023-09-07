@@ -6,7 +6,8 @@ import {Link} from 'react-scroll';
 class NavButton extends React.Component {
   state = {
     isSelected: false,
-    isHover: false
+    isHover: false,
+    pages: ["home", "about", "resume", "experience", "projects", "contact"]
   }
 
   handleOver = () => {
@@ -22,48 +23,51 @@ class NavButton extends React.Component {
   }
 
   listenScrollEvent = e => {
-    var pageHeight = document.getElementById("home").getBoundingClientRect().height;
-    if (window.scrollY > 67) {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-        // if any scroll is attempted, set this to the previous value
-        window.onscroll = function() {
-            window.scrollTo(scrollLeft, scrollTop);
-        };
+    let total = 0
+    for (let i = 0; i < this.props.order + 1; i++) {
+      let pageHeight = document.getElementById(this.state.pages[i]).getBoundingClientRect().height;
+      if (window.scrollY >= total && window.scrollY < total + pageHeight) {
+        this.setState({
+          isSelected: true
+        });
+      } else {
+        this.setState({
+          isSelected: false
+        });
+      }
+      total += pageHeight
     }
-    if (window.scrollY >= pageHeight * this.props.order && window.scrollY < pageHeight * (this.props.order + 1)) {
-      this.setState({
-        isSelected: true
-      });
-    } else {
-      this.setState({
-        isSelected: false
-      })
-    }
+    //if (window.scrollY >= pageHeight * this.props.order && window.scrollY < pageHeight * (this.props.order + 1)) {
+    //  this.setState({
+    //    isSelected: true
+    //  });
+    //} else {
+    //  this.setState({
+    //    isSelected: false
+    //  })
+    //}
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.listenScrollEvent)
-    if (this.props.init) {
-      window.scrollY = document.getElementById("appHead").getBoundingClientRect().height;
-    }
+    window.addEventListener('scroll', this.listenScrollEvent);
+    //if (this.props.init) {
+    //  window.scrollY = document.getElementById("appHead").getBoundingClientRect().height;
+    //}
   }
 
   render() {
     const myStyle = {
-      backgroundColor: (this.state.isHover || this.state.isSelected) ? '#ebc631': '#FFFFF8',
+      backgroundColor: (this.state.isHover || this.state.isSelected) ? '#B3A369': '#F9F6F5',
       textAlign: "center",
       display: "inline-flex",
       justifyContent: "space-around",
       listStyle: "none",
       flexDirection: "row",
       fontSize: "calc(1px + 2vmin)",
-      padding: "calc(1px + 2vmin)",
       color: "#282c34",
       position: "sticky",
       top: "0%",
-      zIndex: "1",
+      zIndex: "9999",
       border: "1px solid #FFFFF8",
       borderRadius: "5px",
       padding: "0.5%",
@@ -83,8 +87,9 @@ class NavBar extends React.Component {
         <NavButton order={0} id="homeButton" toPage="home" name="Home"></NavButton>
         <NavButton order={1} id="aboutButton" toPage="about" name="About"></NavButton>
         <NavButton order={2} id="resumeButton" toPage="resume" name="Resume"></NavButton>
-        <NavButton order={3} id="interestsButton" toPage="interests" name="Interests"></NavButton>
-        <NavButton order={4} id="contactButton" toPage="contact" name="Contact"></NavButton>
+        <NavButton order={3} id="experienceButton" toPage="experience" name="Experience"></NavButton>
+        <NavButton order={4} id="projectsButton" toPage="projects" name="Projects"></NavButton>
+        <NavButton order={5} id="contactButton" toPage="contact" name="Contact"></NavButton>
       </div>
     )
   }

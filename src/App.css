@@ -19,17 +19,18 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #007bff;
-  color: white;
+  background-color: #fffff8;
+  color: #282c34;
   border: none;
   border-radius: 5px;
   align-items: "center";
+  margin:10px;
 }
 
 main {
-  padding: 20px;
   align-items: "center";
-
+  /*padding-left:10px;
+  padding-right:10px;*/
 }
 
 footer {
@@ -42,4 +43,5 @@ footer {
   padding-right: 20vh;
   padding-left: 20vh;
   align-items: center;
+  z-index: 9999;
 }
