@@ -55,6 +55,37 @@
     z-index: 9999;
   }
 
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink {
+    from { border-color: transparent }
+    to { border-color: #282c34; }
+  }
+
+  .nameTitle {
+    overflow: hidden;
+    border-right: 5px solid #282c34;
+    white-space: nowrap;
+    font-size: 100px;
+    color: #282c34;
+    width: 0;
+    align-items: center;
+    animation:
+      typing 1.5s steps(18, end) forwards,
+      blink .8s infinite;
+    }
+
+  .cont {
+    display: inline-block;
+  }
+
+  .none {
+    visibility: hidden;
+  }
+
   #resume-image {
     height: 150vh;
     width: 116vh;

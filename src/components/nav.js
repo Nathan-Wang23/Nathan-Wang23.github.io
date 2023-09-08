@@ -50,9 +50,6 @@ class NavButton extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.listenScrollEvent);
-    //if (this.props.init) {
-    //  window.scrollY = document.getElementById("appHead").getBoundingClientRect().height;
-    //}
   }
 
   render() {

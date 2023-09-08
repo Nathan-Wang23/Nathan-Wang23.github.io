@@ -42,7 +42,25 @@ class Middle extends React.Component {
     let currentY = window.pageYOffset || document.documentElement.scrollTop;
     let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     if (window.scrollY >= 0 && window.scrollY < 7347) {
+      //let curr = this.state.page
+      //let curr_page = this.state.pages[curr]
+      //let page_name = curr_page[0]
+      //let page_begin = curr_page[1]
+      //let page_height = curr_page[2]
 
+      //if (window.scrollY >= page_begin + page_height) {
+      //  this.setState({
+      //    page: curr+1
+      //  });
+      //} else if (window.scrollY < page_begin) {
+      //  if (curr === 0) {
+      //    console.log("FAILURE")
+      //  } else {
+      //    this.setState({
+      //      page: curr-1
+      //    });
+      //  }
+      //}
     } else {
       currentY = window.scrollY
     }
@@ -54,17 +72,18 @@ class Middle extends React.Component {
         this.setState({
           page: i
         });
+        if (this.state.pages[i] !== "home") {
+          let name = document.getElementById("contain")
+          let headText = document.getElementById("headText")
+          name.className = "none"
+          headText.className = "none"
+        } else if (this.state.pages[i] === "home" && window.scrollY <= 300){
+          let name = document.getElementById("contain")
+          let headText = document.getElementById("headText")
+          name.className = "cont"
+          headText.className = "nameTitle"
+        }
       }
-      //if (window.scrollY >= total + pageHeight*0.95 && window.scrollY < total + pageHeight*1.05) {
-      //  let diff = 1
-      //  if (total + pageHeight - lastY < 0) {
-      //    diff = 0
-      //  }
-      //  let delta = currentY - lastY
-      //  if (delta < 10) {
-      //    currentY = lastY + delta*0.5 + 0.5*delta*diff
-      //  }
-      //}
       if (this.state.pages[i] === "about" && window.scrollY >= total - pageHeight/2 && window.scrollY < total + pageHeight/2) {
         let delta = currentY - lastY
         let positionInFrame = window.scrollY - total + pageHeight/2
@@ -77,6 +96,12 @@ class Middle extends React.Component {
           x = ratio * delta * -1.0
         }
         let newPercentage = parseFloat(sty.marginLeft.slice(0,-1)) + x
+        if (newPercentage > 90) {
+          newPercentage = 90
+        }
+        if (newPercentage < -50) {
+          newPercentage = -50
+        }
         sty = {
           height: "40vh",
           width: "30vh",
@@ -98,7 +123,7 @@ class Middle extends React.Component {
           marginTop: "10px",
           marginBottom: "10px",
           marginRight: "10px",
-          marginLeft: "-50%",
+          marginLeft: '-50%',
           justifyContent: "center",
           alignItems: "start",
         };
@@ -110,7 +135,24 @@ class Middle extends React.Component {
   }
 
   componentDidMount() {
+    //let begin = 0
+    //let page_dict = {}
+    //for (let i = 0; i < this.state.pages.length; i++) {
+    //  let current = this.state.pages[i]
+    //  let pageHeight = document.getElementById(current).getBoundingClientRect().height;
+    //  page_dict[i] = [current, begin, pageHeight]
+    //  begin += pageHeight
+    //}
+
+    //this.setState({
+    //  pages: page_dict
+    //});
     window.addEventListener('scroll', (e) => this.listenScrollEvent(e));
+    let currentY = 1;
+    let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    window.scrollTo(scrollLeft, currentY)
+
     //if (this.props.init) {
     //  window.scrollY = document.getElementById("root").getBoundingClientRect().height;
     //}
@@ -123,9 +165,11 @@ class Middle extends React.Component {
         <main>
         <section id="home">
           <div id="appHead" className="AppHeader">
-            <h1 className="header">
-              Nathan Wang
-            </h1>
+            <div id="contain" className='cont'>
+              <h1 id="headText" className="nameTitle">
+                Nathan Wang
+              </h1>
+            </div>
           </div>
         </section>
 
