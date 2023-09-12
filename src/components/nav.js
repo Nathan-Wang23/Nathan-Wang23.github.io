@@ -54,14 +54,14 @@ class NavButton extends React.Component {
 
   render() {
     const myStyle = {
-      backgroundColor: (this.state.isHover || this.state.isSelected) ? '#B3A369': '#F9F6F5',
+      backgroundColor: (this.state.isHover || this.state.isSelected) ? '#B3A369': '#F9F6F1',
       textAlign: "center",
       display: "inline-flex",
       justifyContent: "space-around",
       listStyle: "none",
       flexDirection: "row",
       fontSize: "calc(1px + 2vmin)",
-      color: "#282c34",
+      color: "#002233",
       position: "sticky",
       top: "0%",
       zIndex: "9999",

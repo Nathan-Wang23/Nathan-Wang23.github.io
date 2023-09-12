@@ -22,7 +22,7 @@ class FooterButton extends React.Component {
   render() {
     const footerStyle = {
       backgroundColor: (this.state.isHover || this.state.isSelected) ? 'rgba(179, 163, 105, 0.9)': 'rgba(0,0,0,0.25)',
-      borderColor: (this.state.isHover || this.state.isSelected) ? 'rgba(0,0,0,1)': 'rgba(179, 163, 105, 0.9)',
+      border: (this.state.isHover || this.state.isSelected) ? '1px solid rgba(0,0,0,1)': "1px solid rgba(179, 163, 105, 0.9)",
       textAlign: "center",
       display: "inline-flex",
       justifyContent: "space-around",
@@ -36,8 +36,7 @@ class FooterButton extends React.Component {
       fontWeight: "normal",
       color: "white",
       borderRadius: "5px",
-      border:"1px solid rgba(179, 163, 105, 0.9)",
-      zIndex: "9999",
+      zIndex: "15000",
       opacity: "1", // Leave this as 1
     }
     return (

@@ -3,6 +3,7 @@
 import React from 'react';
 import './middle.css';
 import FooterButton from './footer';
+import ExperienceCard from './experience'
 
 var lastY = 0
 
@@ -10,152 +11,155 @@ let sty = {
   height: "40vh",
   width: "30vh",
   float: "left",
-  padding: "30px",
   marginTop: "10px",
   marginBottom: "10px",
   marginRight: "10px",
   marginLeft: "-50%",
   justifyContent: "center",
-  alignItems: "start",
+  alignItems: "center",
+  border: "4px solid #F9F6E5",
+  borderRadius: "5%"
 };
 
 class Middle extends React.Component {
   state = {
     page: 0,
     pages: ["home", "about", "resume", "experience", "projects", "contact"],
-    aboutStyle: {
-      height: "40vh",
-      width: "30vh",
-      float: "left",
-      padding: "30px",
-      marginTop: "10px",
-      marginBottom: "10px",
-      marginRight: "10px",
-      marginLeft: "40%",
-      justifyContent: "center",
-      alignItems: "start",
-    }
+    pageValues: {}
   }
 
 
   listenScrollEvent = e => {
     let currentY = window.pageYOffset || document.documentElement.scrollTop;
     let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    if (window.scrollY >= 0 && window.scrollY < 7347) {
-      //let curr = this.state.page
-      //let curr_page = this.state.pages[curr]
-      //let page_name = curr_page[0]
-      //let page_begin = curr_page[1]
-      //let page_height = curr_page[2]
+    let vert = window.scrollY
+    let name = document.getElementById("contain")
+    let headText = document.getElementById("headText")
+    let aboutBegin = this.state.pageValues[1][1]
+    let aboutPageHeight = this.state.pageValues[1][2] - aboutBegin
+    let delta = currentY - lastY
+    let positionInFrame = vert - aboutBegin + aboutPageHeight/2
+    let halfway = aboutPageHeight / 2
+    let ratio = 90 / halfway
 
-      //if (window.scrollY >= page_begin + page_height) {
-      //  this.setState({
-      //    page: curr+1
-      //  });
-      //} else if (window.scrollY < page_begin) {
-      //  if (curr === 0) {
-      //    console.log("FAILURE")
-      //  } else {
-      //    this.setState({
-      //      page: curr-1
-      //    });
-      //  }
-      //}
-    } else {
-      currentY = window.scrollY
-    }
-
-    let total = 0
-    for (let i = 0; i < this.state.pages.length; i++) {
-      let pageHeight = document.getElementById(this.state.pages[i]).getBoundingClientRect().height;
-      if (window.scrollY >= total && window.scrollY < total + pageHeight) {
+    if (vert >= 0 && vert < 7347) {
+      if (vert >= this.state.pageValues[0][1] && vert < this.state.pageValues[0][2]) {
         this.setState({
-          page: i
+          page: 0
         });
-        if (this.state.pages[i] !== "home") {
-          let name = document.getElementById("contain")
-          let headText = document.getElementById("headText")
-          name.className = "none"
-          headText.className = "none"
-        } else if (this.state.pages[i] === "home" && window.scrollY <= 300){
-          let name = document.getElementById("contain")
-          let headText = document.getElementById("headText")
+        if (vert <= 300) {
           name.className = "cont"
           headText.className = "nameTitle"
         }
+
+      } else if (vert >= this.state.pageValues[1][1] && vert < this.state.pageValues[1][2]) {
+        this.setState({
+          page: 1
+        });
+        if (name != null && headText != null) {
+          name.className = "none"
+          headText.className = "none"
+        }
+      } else if (vert >= this.state.pageValues[2][1] && vert < this.state.pageValues[2][2]) {
+        this.setState({
+          page: 2
+        });
+        if (name != null && headText != null) {
+          name.className = "none"
+          headText.className = "none"
+        }
+      } else if (vert >= this.state.pageValues[3][1] && vert < this.state.pageValues[3][2]) {
+        this.setState({
+          page: 3
+        });
+        if (name != null && headText != null) {
+          name.className = "none"
+          headText.className = "none"
+        }
+      } else if (vert >= this.state.pageValues[4][1] && vert < this.state.pageValues[4][2]) {
+        this.setState({
+          page: 4
+        });
+        if (name != null && headText != null) {
+          name.className = "none"
+          headText.className = "none"
+        }
+      } else if (vert >= this.state.pageValues[5][1] && vert < this.state.pageValues[5][2]) {
+        this.setState({
+          page: 5
+        });
+        if (name != null && headText != null) {
+          name.className = "none"
+          headText.className = "none"
+        }
       }
-      if (this.state.pages[i] === "about" && window.scrollY >= total - pageHeight/2 && window.scrollY < total + pageHeight/2) {
-        let delta = currentY - lastY
-        let positionInFrame = window.scrollY - total + pageHeight/2
-        let halfway = pageHeight / 2
-        let ratio = 90 / halfway
-        let x = 0
-        if (positionInFrame < halfway) {
-          x = ratio * delta
-        } else {
-          x = ratio * delta * -1.0
-        }
-        let newPercentage = parseFloat(sty.marginLeft.slice(0,-1)) + x
-        if (newPercentage > 90) {
-          newPercentage = 90
-        }
-        if (newPercentage < -50) {
-          newPercentage = -50
-        }
-        sty = {
-          height: "40vh",
-          width: "30vh",
-          float: "left",
-          padding: "30px",
-          marginTop: "10px",
-          marginBottom: "10px",
-          marginRight: "10px",
-          marginLeft: `${newPercentage}%`,
-          justifyContent: "center",
-          alignItems: "start",
-        };
-      } else if (this.state.pages[i] === "about" && (window.scrollY < total - pageHeight/2 || window.scrollY >= total + pageHeight/2)) {
-        sty = {
-          height: "40vh",
-          width: "30vh",
-          float: "left",
-          padding: "30px",
-          marginTop: "10px",
-          marginBottom: "10px",
-          marginRight: "10px",
-          marginLeft: '-50%',
-          justifyContent: "center",
-          alignItems: "start",
-        };
+    } else {
+      currentY = vert
+    }
+    if (vert >= aboutBegin - aboutPageHeight/2 && vert < aboutBegin + aboutPageHeight/2) {
+      let x = 0
+      if (positionInFrame < halfway) {
+        x = ratio * delta
+      } else {
+        x = ratio * delta * -1.0
       }
-      total += pageHeight
+      let newPercentage = parseFloat(sty.marginLeft.slice(0,-1)) + x
+      if (newPercentage > 90) {
+        newPercentage = 90.0
+      }
+      if (newPercentage < -50) {
+        newPercentage = -50.0
+      }
+      sty = {
+        height: "40vh",
+        width: "30vh",
+        float: "left",
+        marginTop: "10px",
+        marginBottom: "10px",
+        marginRight: "10px",
+        marginLeft: `${newPercentage}%`,
+        justifyContent: "center",
+        alignItems: "center",
+        border: "4px solid #F9F6E5",
+        borderRadius: "5%"
+      };
+    } else if (vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2){
+      sty = {
+        height: "40vh",
+        width: "30vh",
+        float: "left",
+        marginTop: "10px",
+        marginBottom: "10px",
+        marginRight: "10px",
+        marginLeft: '-50%',
+        justifyContent: "center",
+        alignItems: "center",
+        border: "4px solid #F9F6E5",
+        borderRadius: "5%"
+      };
     }
     window.scrollTo(scrollLeft, currentY);
     lastY = currentY
   }
 
   componentDidMount() {
-    //let begin = 0
-    //let page_dict = {}
-    //for (let i = 0; i < this.state.pages.length; i++) {
-    //  let current = this.state.pages[i]
-    //  let pageHeight = document.getElementById(current).getBoundingClientRect().height;
-    //  page_dict[i] = [current, begin, pageHeight]
-    //  begin += pageHeight
-    //}
-
-    //this.setState({
-    //  pages: page_dict
-    //});
-    window.addEventListener('scroll', (e) => this.listenScrollEvent(e));
-    let currentY = 1;
+    let begin = 0
+    let page_dict = {}
+    for (let i = 0; i < this.state.pages.length; i++) {
+      let current = this.state.pages[i]
+      let pageHeight = document.getElementById(current).getBoundingClientRect().height;
+      page_dict[i] = [current, begin-50, pageHeight+begin-50]
+      begin += pageHeight
+    }
+    let currentY = 5;
     let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-    window.scrollTo(scrollLeft, currentY)
-
-    //if (this.props.init) {
-    //  window.scrollY = document.getElementById("root").getBoundingClientRect().height;
-    //}
+    window.scrollTo(scrollLeft, 925)
+    this.setState({
+      pageValues: page_dict
+    }, () => {
+      window.addEventListener('scroll', (e) => this.listenScrollEvent(e));
+      window.scrollTo(scrollLeft, currentY)
+    });
   }
 
 
@@ -178,8 +182,8 @@ class Middle extends React.Component {
             <div className='AboutTitle'>
               <h1> About Me </h1>
               <div className='about-content'>
-                <div className="imageLeft" style={{...sty}}>
-                  <img id="profile" className="prof" alt="profile" src="/photos/profile.jpeg"></img>
+                <div className="imageLeft">
+                  <img style={{...sty}} alt="profile" src="/photos/profile.jpeg"></img>
                 </div>
                 <div className='textRight'>
                   <h3>Georgia Institute of Technology</h3>
@@ -208,6 +212,10 @@ class Middle extends React.Component {
         <section id="experience">
           <div className="ExperienceTitle">
             <h1> Experience </h1>
+              <ExperienceCard job="CSA Intern at Amazon Web Services" date="May 2023 — August 2023" details="Worked on cases for AWS clients seeking well-architected AWS solutions for security and fault tolerance. Developed code that combines AWS services to solve specific problems with the best architected framework. Utilized Linux and AWS CDKs to debug S3, Kubernetes, VPC, networking, and Apache web server issues. Built tools using the AWS CDK to facilitate proper replication of S3 buckets across regions. Built a web application extension for Amazon phone tools that uses AWS Rekognition to easily determine an employee’s alias for networking purposes."></ExperienceCard>
+              <ExperienceCard job="SWE Intern at Machinify Inc." date="May 2021 — August 2021" details="Worked closely with senior developers to implement new features and enhance existing functionality
+Developed user-friendly interfaces and improved the overall user experience of the company's software products
+Conducted extensive testing and debugging to identify and resolve software defects"></ExperienceCard>
           </div>
         </section>
 
@@ -247,6 +255,7 @@ class Middle extends React.Component {
         {this.state.page >= this.state.pages.length - 1 &&
           <footer>
             <FooterButton arrowType="bi bi-chevron-double-up" id="homeFooter" nextPage={this.state.pages[0]}> </FooterButton>
+            <div className="bottomCircle"></div>
           </footer>
         }
 

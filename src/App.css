@@ -12,7 +12,7 @@
   padding-bottom: 25%;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #da2b2b;
+  background-color: #002233;
 }
 
 button {
@@ -20,7 +20,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   background-color: #fffff8;
-  color: #282c34;
+  color: #;
   border: none;
   border-radius: 5px;
   align-items: "center";
@@ -29,6 +29,7 @@ button {
 
 main {
   align-items: "center";
+
   /*padding-left:10px;
   padding-right:10px;*/
 }
@@ -43,5 +44,6 @@ footer {
   padding-right: 20vh;
   padding-left: 20vh;
   align-items: center;
-  z-index: 9999;
+  z-index: 9998;
+  background-color: rgba(0,0,0,0);
 }
