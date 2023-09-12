@@ -3,11 +3,73 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 9999;
+    z-index: 5;
     background-color: #F9F6F1;
-    /*background: linear-gradient(180deg, rgba(236,236,236,1) 0%, rgba(255,255,248,1) 50%, rgba(236,236,236,1) 100%);*/
+    /*background: linear-gradient(180deg; rgba(236;236;236;1) 0%; rgba(255;255;248;1) 50%; rgba(236;236;236;1) 100%);*/
     padding: 1%;
     height: 5vh;
     align-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
+
+.navbutton {
+  background-color: #F9F6F1;
+  text-align: center;
+  display: inline-flex;
+  justify-content: space-around;
+  list-style: none;
+  flex-direction: row;
+  font-size: calc(1px + 2vmin);
+  color: #002233;
+  position: sticky;
+  top: 0%;
+  z-index: 5;
+  border: 1px solid #FFFFF8;
+  border-radius: 5px;
+  padding: 0.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  cursor: default;
+}
+
+.navbutton:hover {
+  background-color: #B3A369;
+  text-align: center;
+  display: inline-flex;
+  justify-content: space-around;
+  list-style: none;
+  flex-direction: row;
+  font-size: calc(1px + 2vmin);
+  color: #002233;
+  position: sticky;
+  top: 0%;
+  z-index: 5;
+  border: 1px solid #FFFFF8;
+  border-radius: 5px;
+  padding: 0.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.navbuttonSelected {
+  background-color: #B3A369;
+  text-align: center;
+  display: inline-flex;
+  justify-content: space-around;
+  list-style: none;
+  flex-direction: row;
+  font-size: calc(1px + 2vmin);
+  color: #002233;
+  position: sticky;
+  top: 0%;
+  z-index: 5;
+  border: 1px solid #FFFFF8;
+  border-radius: 5px;
+  padding: 0.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  cursor: default
+}
+
+

@@ -16,7 +16,7 @@
     padding: 0.5%;
     margin-left: 5%;
     margin-right: 5%;
-    margin: 2%;
+    margin-bottom: 2%;
     transition: box-shadow 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 
@@ -38,6 +38,6 @@
     padding: 1%;
     margin-left: 5%;
     margin-right: 5%;
-    margin: 2%;
+    margin-bottom: 2%;
     transition: box-shadow 0.4s ease-in-out, padding 0.5s ease-in-out;
 }

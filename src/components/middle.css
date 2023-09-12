@@ -81,7 +81,63 @@
     animation:
       typing 1.5s steps(18, end) forwards,
       blink .8s infinite;
-    }
+  }
+
+  /*#profile {
+    height: 40vh;
+    width: 30vh;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #F9F6E5;
+    border-radius: 5%
+  }*/
+
+  .profile {
+    height: 40vh;
+    width: 30vh;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid red;
+    border-radius: 5%;
+    animation:
+      move 1.0s steps(100, end) forwards
+  }
+
+  .back {
+    height: 40vh;
+    width: 30vh;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid red;
+    border-radius: 5%;
+    animation:
+      moveback 1.0s steps(100, end) forwards
+  }
+
+  @keyframes move {
+    from { margin-left: 0% }
+    to { margin-left: 50% }
+  }
+
+  @keyframes moveback {
+    from { margin-left: 50% }
+    to { margin-left: 0% }
+  }
 
   .cont {
     display: inline-block;
@@ -268,6 +324,42 @@
     color: #F9F6E5;
   }
 
+  .credit:hover {
+    cursor: pointer;
+    filter: brightness(1.3);
+  }
+
+  .credit {
+    background-color: rgba(0,0,0,0);
+    filter: brightness(0.9);
+    margin-right:5%;
+  }
+
+  .course {
+    height: 23vh;
+    width: 23vh;
+    background-color: rgba(0,0,0,0);
+    margin-right:5%;
+    filter: brightness(0.8)
+  }
+
+  .course:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+
+  .honors {
+    height: 23vh;
+    width: 23vh;
+    background-color: rgba(0,0,0,0);
+    margin-right:5%;
+  }
+
+  .honors:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+
   .ProjectsTitle {
     background-color: #002233;
     /*background-image: url('../../public/photos/lake.jpeg');
@@ -313,6 +405,7 @@
 
   .contactButtons:hover {
     color: #ebc631;
+    cursor: pointer;
   }
 
   .homeButtons {
@@ -328,6 +421,7 @@
 
   .homeButtons:hover {
     color: #ebc631;
+    cursor: pointer;
   }
 
 
@@ -360,7 +454,7 @@
   .bottomCircle {
     background-color: rgba(34, 68, 85, 0.5);
     border-radius: 50% 50% 0 0;
-    height: 110%;
+    height: 150%;
     width:100%;
     bottom: 0px;
     left:0px;

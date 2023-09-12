@@ -4,6 +4,7 @@ import React from 'react';
 import './middle.css';
 import FooterButton from './footer';
 import ExperienceCard from './experience'
+import Honors from './modal'
 
 var lastY = 0
 
@@ -25,7 +26,27 @@ class Middle extends React.Component {
   state = {
     page: 0,
     pages: ["home", "about", "resume", "experience", "projects", "contact"],
-    pageValues: {}
+    pageValues: {},
+    showHonors: false
+  }
+
+  handleSAA() {
+    window.open("https://www.credly.com/badges/055e8c49-e2b9-4d37-9f20-b6f4d1f44373/public_url", "_blank")
+  }
+
+  handleCCP() {
+    window.open("https://www.credly.com/badges/d4091654-1e91-4db6-922d-1502cdb3db29/public_url", "_blank")
+  }
+
+  handleML() {
+    window.open("https://coursera.org/share/02d46146c271da65428b7ff524249dbf", "_blank")
+  }
+
+  handleHonors = () => {
+
+    this.setState({
+      showHonors: !this.state.showHonors
+    });
   }
 
 
@@ -35,8 +56,8 @@ class Middle extends React.Component {
     let vert = window.scrollY
     let name = document.getElementById("contain")
     let headText = document.getElementById("headText")
-    let aboutBegin = this.state.pageValues[1][1]
-    let aboutPageHeight = this.state.pageValues[1][2] - aboutBegin
+    let aboutBegin = this.state.pageValues[1][1] + 60
+    let aboutPageHeight = this.state.pageValues[1][2] - aboutBegin +60
     let delta = currentY - lastY
     let positionInFrame = vert - aboutBegin + aboutPageHeight/2
     let halfway = aboutPageHeight / 2
@@ -96,6 +117,7 @@ class Middle extends React.Component {
     } else {
       currentY = vert
     }
+
     if (vert >= aboutBegin - aboutPageHeight/2 && vert < aboutBegin + aboutPageHeight/2) {
       let x = 0
       if (positionInFrame < halfway) {
@@ -123,7 +145,19 @@ class Middle extends React.Component {
         border: "4px solid #F9F6E5",
         borderRadius: "5%"
       };
-    } else if (vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2){
+    } else if (sty !== {
+      height: "40vh",
+      width: "30vh",
+      float: "left",
+      marginTop: "10px",
+      marginBottom: "10px",
+      marginRight: "10px",
+      marginLeft: '-50%',
+      justifyContent: "center",
+      alignItems: "center",
+      border: "4px solid #F9F6E5",
+      borderRadius: "5%"
+    } && (vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2)){
       sty = {
         height: "40vh",
         width: "30vh",
@@ -186,11 +220,12 @@ class Middle extends React.Component {
                   <img style={{...sty}} alt="profile" src="/photos/profile.jpeg"></img>
                 </div>
                 <div className='textRight'>
+                  <p>I'm a software engineer from Cupertino, California.</p>
+                  <p>My specializations are in full-stack development, cloud services, and machine learning with computer vision.</p>
+                  <p>As a graduate and researcher from Georgia Tech, I want to continue pursuing work on groundbreaking ideas and develop notable products.</p>
                   <h3>Georgia Institute of Technology</h3>
-                  <p>Bachelor of Science, Computer Science</p>
-                  <p>GPA: 3.92/4.0</p>
-                  <p>Expected Masters of Science, Computer Science Degree: May 2024</p>
-                  <p>Location: Los Altos, CA</p>
+                  <p>Bachelor of Science, Computer Science Degree: May 2023</p>
+                  <p>Masters of Science, Computer Science Degree: May 2024</p>
                 </div>
             </div>
           </div>
@@ -212,17 +247,26 @@ class Middle extends React.Component {
         <section id="experience">
           <div className="ExperienceTitle">
             <h1> Experience </h1>
+              <h4>Internships</h4>
               <ExperienceCard job="CSA Intern at Amazon Web Services" date="May 2023 — August 2023" details="Worked on cases for AWS clients seeking well-architected AWS solutions for security and fault tolerance. Developed code that combines AWS services to solve specific problems with the best architected framework. Utilized Linux and AWS CDKs to debug S3, Kubernetes, VPC, networking, and Apache web server issues. Built tools using the AWS CDK to facilitate proper replication of S3 buckets across regions. Built a web application extension for Amazon phone tools that uses AWS Rekognition to easily determine an employee’s alias for networking purposes."></ExperienceCard>
               <ExperienceCard job="SWE Intern at Machinify Inc." date="May 2021 — August 2021" details="Worked closely with senior developers to implement new features and enhance existing functionality
 Developed user-friendly interfaces and improved the overall user experience of the company's software products
 Conducted extensive testing and debugging to identify and resolve software defects"></ExperienceCard>
+              <div>
+                <h4>Certifications and Awards</h4>
+                <img className="credit" src="/photos/SAA.png" alt="Solutions Architect Associate" onClick={this.handleSAA}></img>
+                <img className="credit" src="/photos/CCP.png" alt="Certified Cloud Practitioner" onClick={this.handleCCP}></img>
+                <img className="course" src="/photos/coursera.png" alt="ML Coursera" onClick={this.handleML}></img>
+                <img className="honors" src="/photos/honors.png" alt="Faculty Honors" onClick={this.handleHonors}></img>
+                <Honors title="Faculty Honors" date="Achieved for Fall and Spring semesters 2020 to 2023." content="This designation is awarded to undergraduate students who have earned a perfect 4.0 academic average for the semester." toggleModal={this.handleHonors} isOpen={this.state.showHonors}></Honors>
+              </div>
           </div>
         </section>
 
 
         <section id="projects">
           <div className="ProjectsTitle">
-            <h1> Projects </h1>
+            <h1> Projects and Papers</h1>
           </div>
         </section>
 

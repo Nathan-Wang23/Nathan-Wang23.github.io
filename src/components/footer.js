@@ -21,7 +21,7 @@ class FooterButton extends React.Component {
 
   render() {
     const footerStyle = {
-      backgroundColor: (this.state.isHover || this.state.isSelected) ? 'rgba(179, 163, 105, 0.9)': 'rgba(0,0,0,0.25)',
+      backgroundColor: (this.state.isHover || this.state.isSelected) ? 'rgba(179, 163, 105, 0.9)': 'rgba(0,0,0,0.5)',
       border: (this.state.isHover || this.state.isSelected) ? '1px solid rgba(0,0,0,1)': "1px solid rgba(179, 163, 105, 0.9)",
       textAlign: "center",
       display: "inline-flex",
@@ -38,9 +38,10 @@ class FooterButton extends React.Component {
       borderRadius: "5px",
       zIndex: "15000",
       opacity: "1", // Leave this as 1
+      cursor: (this.state.isHover) ? "pointer": "default"
     }
     return (
-      <Link style={footerStyle} onMouseLeave={this.handleLeave} onMouseEnter={this.handleOver} id={this.props.id} to={this.props.nextPage} spy={true} smooth={true}> <i className={this.props.arrowType}></i> </Link>
+      <Link style={footerStyle} onMouseLeave={this.handleLeave} onMouseEnter={this.handleOver} id={this.props.id} to={this.props.nextPage} offset={-80} spy={true} smooth={true}> <i className={this.props.arrowType}></i> </Link>
     );
   }
 }
