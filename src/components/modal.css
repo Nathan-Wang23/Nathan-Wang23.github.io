@@ -9,6 +9,7 @@
     border-radius: 5px;
     width:auto;
     z-index: 9;
+    height: 15vh;
     pointer-events: none;
 }
 
@@ -23,6 +24,7 @@
     border-radius: 5px;
     width:auto;
     z-index: 9;
+    height:15vh;
     pointer-events: none;
 }
 
@@ -40,7 +42,7 @@
 
 .hiddenBlur {
     position: fixed;
-    background-color: rgba(0,10,20,0.8);
+    background-color: rgba(40,10,20,1);
     top:0%;
     left:0%;
     margin:20%;

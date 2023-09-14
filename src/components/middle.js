@@ -5,6 +5,7 @@ import './middle.css';
 import FooterButton from './footer';
 import ExperienceCard from './experience'
 import Honors from './modal'
+import Carousel from './carousel'
 
 var lastY = 0
 
@@ -15,7 +16,7 @@ let sty = {
   marginTop: "10px",
   marginBottom: "10px",
   marginRight: "10px",
-  marginLeft: "-50%",
+  marginLeft: "-40%",
   justifyContent: "center",
   alignItems: "center",
   border: "4px solid #F9F6E5",
@@ -52,7 +53,7 @@ class Middle extends React.Component {
 
   listenScrollEvent = e => {
     let currentY = window.pageYOffset || document.documentElement.scrollTop;
-    let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    //let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     let vert = window.scrollY
     let name = document.getElementById("contain")
     let headText = document.getElementById("headText")
@@ -63,7 +64,7 @@ class Middle extends React.Component {
     let halfway = aboutPageHeight / 2
     let ratio = 90 / halfway
 
-    if (vert >= 0 && vert < 7347) {
+    if (vert >= 0 && vert < this.state.pageValues[5][2]) {
       if (vert >= this.state.pageValues[0][1] && vert < this.state.pageValues[0][2]) {
         this.setState({
           page: 0
@@ -114,9 +115,8 @@ class Middle extends React.Component {
           headText.className = "none"
         }
       }
-    } else {
-      currentY = vert
     }
+
 
     if (vert >= aboutBegin - aboutPageHeight/2 && vert < aboutBegin + aboutPageHeight/2) {
       let x = 0
@@ -145,19 +145,7 @@ class Middle extends React.Component {
         border: "4px solid #F9F6E5",
         borderRadius: "5%"
       };
-    } else if (sty !== {
-      height: "40vh",
-      width: "30vh",
-      float: "left",
-      marginTop: "10px",
-      marginBottom: "10px",
-      marginRight: "10px",
-      marginLeft: '-50%',
-      justifyContent: "center",
-      alignItems: "center",
-      border: "4px solid #F9F6E5",
-      borderRadius: "5%"
-    } && (vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2)){
+    } else if ((vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2)){
       sty = {
         height: "40vh",
         width: "30vh",
@@ -165,14 +153,14 @@ class Middle extends React.Component {
         marginTop: "10px",
         marginBottom: "10px",
         marginRight: "10px",
-        marginLeft: '-50%',
+        marginLeft: '-40%',
         justifyContent: "center",
         alignItems: "center",
         border: "4px solid #F9F6E5",
         borderRadius: "5%"
       };
     }
-    window.scrollTo(scrollLeft, currentY);
+
     lastY = currentY
   }
 
@@ -185,14 +173,11 @@ class Middle extends React.Component {
       page_dict[i] = [current, begin-50, pageHeight+begin-50]
       begin += pageHeight
     }
-    let currentY = 5;
-    let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    window.scrollTo(scrollLeft, 925)
+
     this.setState({
       pageValues: page_dict
     }, () => {
       window.addEventListener('scroll', (e) => this.listenScrollEvent(e));
-      window.scrollTo(scrollLeft, currentY)
     });
   }
 
@@ -234,12 +219,13 @@ class Middle extends React.Component {
 
 
         <section id="resume">
-          <div className="ResumeBlur"></div>
-            <div className="resumePopout">
-              <h1> Resume </h1>
+          <div className="ResumeTitle">
+            <h1> Resume </h1>
+            <div className="resume-content">
               <div className='resume-content'>
                 <img alt="resume_nathan" src='/photos/resume.png' id="resume-image"></img>
                 <br/>
+              </div>
               </div>
             </div>
         </section>
@@ -266,7 +252,8 @@ Conducted extensive testing and debugging to identify and resolve software defec
 
         <section id="projects">
           <div className="ProjectsTitle">
-            <h1> Projects and Papers</h1>
+            <h1 className="prjTit"> Projects and Papers</h1>
+            <Carousel></Carousel>
           </div>
         </section>
 

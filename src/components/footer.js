@@ -36,12 +36,12 @@ class FooterButton extends React.Component {
       fontWeight: "normal",
       color: "white",
       borderRadius: "5px",
-      zIndex: "15000",
+      zIndex: "9",
       opacity: "1", // Leave this as 1
       cursor: (this.state.isHover) ? "pointer": "default"
     }
     return (
-      <Link style={footerStyle} onMouseLeave={this.handleLeave} onMouseEnter={this.handleOver} id={this.props.id} to={this.props.nextPage} offset={-80} spy={true} smooth={true}> <i className={this.props.arrowType}></i> </Link>
+      <Link style={footerStyle} onMouseLeave={this.handleLeave} onMouseEnter={this.handleOver} id={this.props.id} to={this.props.nextPage} offset={-50} spy={true} smooth={true}> <i className={this.props.arrowType}></i> </Link>
     );
   }
 }

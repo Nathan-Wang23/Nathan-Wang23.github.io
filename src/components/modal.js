@@ -13,7 +13,7 @@ export default class Honors extends Component{
             <Button className="butt" variant="primary" onClick={this.props.toggleModal}>&#10006;</Button>
             <div className='topBlur' onClick={this.props.toggleModal}> </div>
             <div className="hiddenBlur">
-            <Modal id="honor" className="modal" show={this.props.isOpen}>
+            <Modal disabled id="honor" className="modal" show={this.props.isOpen}>
                     <Modal.Header>
                         <div className="modalHeader">
                             <Modal.Title>

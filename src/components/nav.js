@@ -13,7 +13,7 @@ class NavButton extends React.Component {
         smooth={true}
         duration={1000}
         isDynamic={true}
-        offset={-80}
+        offset={-60}
         className='navbutton'
         activeClass='navbuttonSelected'
         id={this.props.id}
