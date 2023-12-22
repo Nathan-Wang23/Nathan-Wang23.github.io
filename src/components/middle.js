@@ -287,7 +287,7 @@ class Middle extends React.Component {
               <h1> About Me </h1>
               <div className='about-content'>
                 <div className="imageLeft">
-                  <img style={{...sty}} alt="profile" src="/photos/profile.jpeg"></img>
+                  <img style={{...sty}} alt="profile" src="photos/profile.jpeg"></img>
                 </div>
                 <div className='textRight'>
                   <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning. I'm a Georgia Tech graduate with a background in research. I'm enthusiastic about delving into innovative concepts and developing ground-breaking applications.</p>
@@ -307,7 +307,7 @@ class Middle extends React.Component {
             <h1> Resume </h1>
             <div className="resume-content">
               <div className='resume-content'>
-                <img alt="resume_nathan" src='/photos/resume.png' id="resume-image"></img>
+                <img alt="resume_nathan" src='photos/resume.png' id="resume-image"></img>
                 <br/>
               </div>
               </div>
@@ -324,10 +324,10 @@ Developed user-friendly interfaces and improved the overall user experience of t
 Conducted extensive testing and debugging to identify and resolve software defects"></ExperienceCard>
               <div>
                 <h4>Certifications and Awards</h4>
-                <img className="credit" src="/photos/SAA.png" alt="Solutions Architect Associate" onClick={this.handleSAA}></img>
-                <img className="credit" src="/photos/CCP.png" alt="Certified Cloud Practitioner" onClick={this.handleCCP}></img>
-                <img className="course" src="/photos/coursera.png" alt="ML Coursera" onClick={this.handleML}></img>
-                <img className="honors" src="/photos/honors.png" alt="Faculty Honors" onClick={this.handleHonors}></img>
+                <img className="credit" src="photos/SAA.png" alt="Solutions Architect Associate" onClick={this.handleSAA}></img>
+                <img className="credit" src="photos/CCP.png" alt="Certified Cloud Practitioner" onClick={this.handleCCP}></img>
+                <img className="course" src="photos/coursera.png" alt="ML Coursera" onClick={this.handleML}></img>
+                <img className="honors" src="photos/honors.png" alt="Faculty Honors" onClick={this.handleHonors}></img>
                 <Honors title="Faculty Honors" date="Achieved for Fall and Spring semesters 2020 to 2023." content="This designation is awarded to undergraduate students who have earned a perfect 4.0 academic average for the semester." toggleModal={this.handleHonors} isOpen={this.state.showHonors}></Honors>
               </div>
           </div>
