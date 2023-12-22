@@ -24,9 +24,13 @@ class ExperienceCard extends React.Component {
     render() {
         return (
             <div className="exp" onMouseLeave={this.handleLeave} onMouseEnter={this.handleOver}>
-                <h3>{this.props.job}</h3>
-                <p>{this.props.date}</p>
-                <p>{this.props.details}</p>
+                <div className='job-header'>
+                    <h3 className='title-job'>{this.props.job}</h3>
+                    <p className='date'>{this.props.date}</p>
+                </div>
+                <div className='job-content'>
+                    <p>{this.props.details}</p>
+                </div>
             </div>
         );
     }

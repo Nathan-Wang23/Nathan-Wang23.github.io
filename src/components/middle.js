@@ -5,18 +5,22 @@ import './middle.css';
 import FooterButton from './footer';
 import ExperienceCard from './experience'
 import Honors from './modal'
-import Carousel from './carousel'
+//import Carousel from './carousel'
+import { Carousel } from 'primereact/carousel';
+import { projects } from './projectdata';
+import { ScrollPanel } from 'primereact/scrollpanel';
+import { GlassMagnifier } from '@datobs/react-image-magnifiers';
 
 var lastY = 0
 
 let sty = {
-  height: "40vh",
-  width: "30vh",
+  height: "70vh",
+  width: "50vh",
   float: "left",
   marginTop: "10px",
   marginBottom: "10px",
   marginRight: "10px",
-  marginLeft: "-40%",
+  marginLeft: "-70%",
   justifyContent: "center",
   alignItems: "center",
   border: "4px solid #F9F6E5",
@@ -26,7 +30,7 @@ let sty = {
 class Middle extends React.Component {
   state = {
     page: 0,
-    pages: ["home", "about", "resume", "experience", "projects", "contact"],
+    pages: ["home", "about", "experience", "projects", "contact"],
     pageValues: {},
     showHonors: false
   }
@@ -51,6 +55,8 @@ class Middle extends React.Component {
   }
 
 
+
+
   listenScrollEvent = e => {
     let currentY = window.pageYOffset || document.documentElement.scrollTop;
     //let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -64,7 +70,7 @@ class Middle extends React.Component {
     let halfway = aboutPageHeight / 2
     let ratio = 90 / halfway
 
-    if (vert >= 0 && vert < this.state.pageValues[5][2]) {
+    if (vert >= 0 && vert < this.state.pageValues[4][2]) {
       if (vert >= this.state.pageValues[0][1] && vert < this.state.pageValues[0][2]) {
         this.setState({
           page: 0
@@ -105,16 +111,16 @@ class Middle extends React.Component {
         if (name != null && headText != null) {
           name.className = "none"
           headText.className = "none"
-        }
-      } else if (vert >= this.state.pageValues[5][1] && vert < this.state.pageValues[5][2]) {
-        this.setState({
-          page: 5
-        });
-        if (name != null && headText != null) {
-          name.className = "none"
-          headText.className = "none"
-        }
-      }
+        }}
+      //} else if (vert >= this.state.pageValues[5][1] && vert < this.state.pageValues[5][2]) {
+      //  this.setState({
+      //    page: 5
+      //  });
+      //  if (name != null && headText != null) {
+      //    name.className = "none"
+      //    headText.className = "none"
+      //  }
+      //}
     }
 
 
@@ -133,8 +139,8 @@ class Middle extends React.Component {
         newPercentage = -50.0
       }
       sty = {
-        height: "40vh",
-        width: "30vh",
+        height: "70vh",
+        width: "50vh",
         float: "left",
         marginTop: "10px",
         marginBottom: "10px",
@@ -147,13 +153,13 @@ class Middle extends React.Component {
       };
     } else if ((vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2)){
       sty = {
-        height: "40vh",
-        width: "30vh",
+        height: "70vh",
+        width: "50vh",
         float: "left",
         marginTop: "10px",
         marginBottom: "10px",
         marginRight: "10px",
-        marginLeft: '-40%',
+        marginLeft: '-70%',
         justifyContent: "center",
         alignItems: "center",
         border: "4px solid #F9F6E5",
@@ -183,6 +189,85 @@ class Middle extends React.Component {
 
 
   render() {
+    const responsiveOptions = [
+      {
+        breakpoint: '70vw',
+        numVisible: 10,
+        numScroll: 1
+      },
+      {
+        breakpoint: '70vw',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '70vw',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+
+    const openResume = () => {
+      window.open('photos/resume.pdf', '_blank');
+    }
+
+
+    const projectTemplate = (project) => {
+      return (
+          <div className='card-style'>
+          {project.img !== "" && project.movie === "" &&
+          <div style={{ marginTop:'2.5vh', marginLeft: '10px', marginRight:'10px',justifyContent: 'center', height: "100%", width: "auto", flex: '1', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              {project.img !== "" && project.movie === "" &&
+                project.img.map((src, index) => (
+                    <GlassMagnifier
+                      key={index}
+                      cursorStyle="crosshair"
+                      style={{ maxWidth: '100%', maxHeight: "100%", height: "auto", width: "auto", zIndex: 0, border: "3px solid #B3A369", borderRadius: "8px", marginBottom: '5vh'}}
+                      imageSrc={src}
+                      imageAlt={`${project.title} ${index}`}
+                      largeImageSrc={project.imgLarge[index]}
+                      magnifierBorderColor="#002233"
+                      magnifierSize="100%"
+                      square={true}
+                    />
+                ))}
+            </div>}
+
+          {project.img !== "" && project.movie === "ONE" && <img className="projImg" src={project.img} alt={project.title} />}
+
+
+            {project.movie !== "" &&
+              project.img === "" &&
+              <div className='mov-back'>
+                <video className="projMov" autoPlay loop muted>
+                  <source src={project.movie} type="video/mp4" />
+                </video>
+              </div>}
+
+            {project.movie !== "" &&
+              project.img !== "" &&
+              project.movie !== "ONE" &&
+              <div className='mov-back-with-img'>
+                  <img className="projImg-with-movie" src={project.img} alt={project.title} />
+                  <video className="projMov" autoPlay loop muted>
+                    <source src={project.movie} type="video/mp4" />
+                  </video>
+              </div>}
+
+            <div className='sidePiece'>
+                <h2 className="projTit">{project.title}</h2>
+                <ScrollPanel style={{ width: '100%', height: '40vh' }}>
+                  <p className="desc">{project.description}</p>
+                </ScrollPanel>
+                {project.paper !== "" && <button className ="paper-button" onClick={() => window.open(project.paper, '_blank')}>View Paper/Project!</button>}
+                {project.other !== "" && <button className="paper-button" onClick={() => window.open(project.other, '_blank')}>Other Links</button>}
+
+            </div>
+         </div>
+      );
+    };
+
+
     return (
       <div>
         <main>
@@ -205,9 +290,8 @@ class Middle extends React.Component {
                   <img style={{...sty}} alt="profile" src="/photos/profile.jpeg"></img>
                 </div>
                 <div className='textRight'>
-                  <p>I'm a software engineer from Cupertino, California.</p>
-                  <p>My specializations are in full-stack development, cloud services, and machine learning with computer vision.</p>
-                  <p>As a graduate and researcher from Georgia Tech, I want to continue pursuing work on groundbreaking ideas and develop notable products.</p>
+                  <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning. I'm a Georgia Tech graduate with a background in research. I'm enthusiastic about delving into innovative concepts and developing ground-breaking applications.</p>
+                  <p>Still curious? <button onClick={openResume}>View my resume</button></p>
                   <h3>Georgia Institute of Technology</h3>
                   <p>Bachelor of Science, Computer Science Degree: May 2023</p>
                   <p>Masters of Science, Computer Science Degree: May 2024</p>
@@ -218,7 +302,7 @@ class Middle extends React.Component {
         </section>
 
 
-        <section id="resume">
+        {/*<section id="resume">
           <div className="ResumeTitle">
             <h1> Resume </h1>
             <div className="resume-content">
@@ -228,13 +312,13 @@ class Middle extends React.Component {
               </div>
               </div>
             </div>
-        </section>
+        </section>*/}
 
         <section id="experience">
           <div className="ExperienceTitle">
             <h1> Experience </h1>
               <h4>Internships</h4>
-              <ExperienceCard job="CSA Intern at Amazon Web Services" date="May 2023 — August 2023" details="Worked on cases for AWS clients seeking well-architected AWS solutions for security and fault tolerance. Developed code that combines AWS services to solve specific problems with the best architected framework. Utilized Linux and AWS CDKs to debug S3, Kubernetes, VPC, networking, and Apache web server issues. Built tools using the AWS CDK to facilitate proper replication of S3 buckets across regions. Built a web application extension for Amazon phone tools that uses AWS Rekognition to easily determine an employee’s alias for networking purposes."></ExperienceCard>
+              <ExperienceCard job="CSA Intern at Amazon Web Services" date="May 2023 — August 2023" details="During my internship at AWS, I actively contributed to delivering top-tier cloud solutions for clients, emphasizing security and fault tolerance. My responsibilities primarily centered on devising and implementing optimal cloud architecture designs aligned with client requirements. I seamlessly integrating essential components through meticulous coding. This involved crafting solutions for S3 replication and implementing sophisticated IAM credential management systems with AWS CDKs. Engaging in these projects necessitated an adept use of Linux systems and leveraging AWS tools to architect, fine-tune, and rectify components that incorporate a suite of AWS services. I implemented multi-faceted features encompassing services like Lambda, EC2, S3, SageMaker, and others. On a daily basis, I dealt with complex infrastructures and designed for peak performance and scalability."></ExperienceCard>
               <ExperienceCard job="SWE Intern at Machinify Inc." date="May 2021 — August 2021" details="Worked closely with senior developers to implement new features and enhance existing functionality
 Developed user-friendly interfaces and improved the overall user experience of the company's software products
 Conducted extensive testing and debugging to identify and resolve software defects"></ExperienceCard>
@@ -253,7 +337,11 @@ Conducted extensive testing and debugging to identify and resolve software defec
         <section id="projects">
           <div className="ProjectsTitle">
             <h1 className="prjTit"> Projects and Papers</h1>
-            <Carousel></Carousel>
+            <p style={{fontSize:"2vmin"}}>Hover over an image to enlarge. Make sure to check out my links!</p>
+              <div className="card-container">
+                <Carousel value={projects} numVisible={1} numScroll={1} className="custom-carousel" circular
+                responsiveOptions={responsiveOptions} itemTemplate={projectTemplate}/>
+              </div>
           </div>
         </section>
 

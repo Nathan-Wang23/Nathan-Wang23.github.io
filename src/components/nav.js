@@ -29,10 +29,10 @@ class NavBar extends React.Component {
       <div className="Nav">
         <NavButton order={0} id="homeButton" toPage="home" name="Home"></NavButton>
         <NavButton order={1} id="aboutButton" toPage="about" name="About"></NavButton>
-        <NavButton order={2} id="resumeButton" toPage="resume" name="Resume"></NavButton>
-        <NavButton order={3} id="experienceButton" toPage="experience" name="Experience"></NavButton>
-        <NavButton order={4} id="projectsButton" toPage="projects" name="Projects"></NavButton>
-        <NavButton order={5} id="contactButton" toPage="contact" name="Contact"></NavButton>
+        {/*<NavButton order={2} id="resumeButton" toPage="resume" name="Resume"></NavButton>*/}
+        <NavButton order={2} id="experienceButton" toPage="experience" name="Experience"></NavButton>
+        <NavButton order={3} id="projectsButton" toPage="projects" name="Projects"></NavButton>
+        <NavButton order={4} id="contactButton" toPage="contact" name="Contact"></NavButton>
       </div>
     )
   }

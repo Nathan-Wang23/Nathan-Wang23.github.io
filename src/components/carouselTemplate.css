@@ -1,0 +1,101 @@
+.card-style {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1vmin;
+    color: #002233;
+    height: 60vh;
+    max-width: 70vw;
+    background-color: rgba(249, 246, 229, 1);
+    border-radius: 10px;
+    border: 3px solid #F9F6E5;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-bottom: 10px;
+}
+
+.sidePiece {
+    padding: 2%;
+    text-align: left;
+    flex: 1;
+    flex-wrap: nowrap;
+}
+
+.desc {
+    font-size: 1.7vmin;
+    white-space: pre-wrap;
+}
+
+.p-carousel-indicator:not(.p-highlight) button {
+    background-color: rgba(255, 255, 248, 0.8);
+    border-radius: 2px;
+    padding-top: 0.5vh;
+}
+
+/* Style for highlighted button */
+.p-carousel-indicator.p-highlight button {
+    background-color: #B3A369;
+    border: 1px solid #fffff8;
+    border-radius: 2px;
+    padding-top: 0.5vh;
+}
+
+.paper-button {
+    border: 1px solid #002233
+}
+
+.projMov {
+    width: 25vw;
+    height: 35vh;
+    text-align: center;
+    margin: auto;
+}
+
+.projImg {
+    max-width: 100%;
+    max-height: 100%;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.projImg-with-movie {
+    max-width: 80%;
+    max-height: 80%;
+    flex-shrink: 0;
+    border-radius: 8px;
+    margin-right: 2vw;
+    margin-left: 1.75vw;
+}
+
+.mov-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 3px solid #B3A369;
+    border-radius: 10px;
+    width: 30vw;
+    height: 40vh;
+    margin-top: 10vh;
+}
+
+.mov-back-with-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 3px solid #B3A369;
+    border-radius: 10px;
+    width: 30vw;
+    height: 40vh;
+    margin-top: 10vh;
+}
+
+.image-container {
+    max-width: 100%;
+    max-height: 100%;
+    flex-shrink: 0;
+    border-radius: 8px;
+    display: 'flex';
+    flex-direction: 'column'
+}
