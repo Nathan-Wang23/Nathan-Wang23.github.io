@@ -425,6 +425,9 @@
 .desc {
   font-size: 1.7vmin;
   white-space: pre-wrap;
+  overflow-y: scroll;
+  width: 100%;
+  height: 40vh;
 }
 
 .p-carousel-indicator:not(.p-highlight) button {
@@ -503,3 +506,4 @@
   display: 'flex';
   flex-direction: 'column'
 }
+

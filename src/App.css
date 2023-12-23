@@ -63,3 +63,23 @@ h1 {
   margin-bottom: 3%;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(249, 246, 229, 1);
+  border: 1px solid #002233;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #002233;
+  border: 1px solid #B3A369;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B3A369;
+  border: 1px solid #002233;
+  border-radius: 3px;
+}

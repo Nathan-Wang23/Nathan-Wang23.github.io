@@ -8,7 +8,6 @@ import Honors from './modal'
 //import Carousel from './carousel'
 import { Carousel } from 'primereact/carousel';
 import { projects } from './projectdata';
-import { ScrollPanel } from 'primereact/scrollpanel';
 import { GlassMagnifier } from '@datobs/react-image-magnifiers';
 
 var lastY = 0
@@ -26,6 +25,7 @@ let sty = {
   border: "4px solid #F9F6E5",
   borderRadius: "5%"
 };
+
 
 class Middle extends React.Component {
   state = {
@@ -69,6 +69,12 @@ class Middle extends React.Component {
     let positionInFrame = vert - aboutBegin + aboutPageHeight/2
     let halfway = aboutPageHeight / 2
     let ratio = 90 / halfway
+
+
+    let total_height = this.state.pageValues[4][2]
+    let difff = -1.0 * delta / total_height
+    let elevator_percent = parseFloat(sty.marginLeft.slice(0, -1)) + difff
+    console.log(elevator_percent)
 
     if (vert >= 0 && vert < this.state.pageValues[4][2]) {
       if (vert >= this.state.pageValues[0][1] && vert < this.state.pageValues[0][2]) {
@@ -256,9 +262,7 @@ class Middle extends React.Component {
 
             <div className='sidePiece'>
                 <h2 className="projTit">{project.title}</h2>
-                <ScrollPanel style={{ width: '100%', height: '40vh' }}>
-                  <p className="desc">{project.description}</p>
-                </ScrollPanel>
+                <p className="desc">{project.description}</p>
                 {project.paper !== "" && <button className ="paper-button" onClick={() => window.open(project.paper, '_blank')}>View Paper/Project!</button>}
                 {project.other !== "" && <button className="paper-button" onClick={() => window.open(project.other, '_blank')}>Other Links</button>}
 
@@ -290,7 +294,7 @@ class Middle extends React.Component {
                   <img style={{...sty}} alt="profile" src="photos/profile.jpeg"></img>
                 </div>
                 <div className='textRight'>
-                  <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning. I'm a Georgia Tech graduate with a background in research. I'm enthusiastic about delving into innovative concepts and developing ground-breaking applications.</p>
+                  <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning. I'm a Georgia Tech graduate with a Bachelors in Computer Science and a Masters in Machine Learning and I love to pursue research and projects that fascinate me. I'm enthusiastic about delving into innovative concepts and developing ground-breaking applications that can help people, catalyze businesses, and do wonderfully creative tasks. Make sure to check out my Projects section. I've shared a collection of my own favorite applications and research papers.</p>
                   <p>Still curious? <button onClick={openResume}>View my resume</button></p>
                   <h3>Georgia Institute of Technology</h3>
                   <p>Bachelor of Science, Computer Science Degree: May 2023</p>
@@ -377,7 +381,6 @@ Conducted extensive testing and debugging to identify and resolve software defec
             <div className="bottomCircle"></div>
           </footer>
         }
-
       </div>
     );
   }
