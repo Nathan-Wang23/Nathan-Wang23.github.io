@@ -71,7 +71,6 @@ class Middle extends React.Component {
     let ratio = 90 / halfway
 
     if (vert >= 0 && vert < this.state.pageValues[5][2]) {
-      console.log(vert)
       if (vert >= this.state.pageValues[0][1] && vert < this.state.pageValues[0][2]) {
         this.setState({
           page: 0
@@ -175,8 +174,6 @@ class Middle extends React.Component {
     for (let i = 0; i < this.state.pages.length; i++) {
       let current = this.state.pages[i]
       let pageHeight = document.getElementById(current).getBoundingClientRect().height;
-      console.log(current)
-      console.log(pageHeight)
       page_dict[i] = [current, begin-54, pageHeight+begin-54]
       begin += pageHeight
     }
@@ -186,6 +183,11 @@ class Middle extends React.Component {
       window.addEventListener('scroll', (e) => this.listenScrollEvent(e));
     });
 
+    const firstPlink = document.querySelector('.p-carousel-next');
+    if (firstPlink) {
+      console.log("plink")
+      firstPlink.click();
+    }
   }
 
 
@@ -298,7 +300,7 @@ class Middle extends React.Component {
             <h1 className="prjTit"> Projects and Papers</h1>
             <p style={{fontSize:"2vmin"}}>Hover over an image to enlarge. Make sure to check out my links!</p>
               <div className="card-container">
-                <Carousel value={projects} page={0} numVisible={1} numScroll={1} className="custom-carousel" circular tab itemTemplate={projectTemplate}/>
+                <Carousel id="carousel" value={projects} page={0} numVisible={1} numScroll={1} className="custom-carousel" circular itemTemplate={projectTemplate}/>
               </div>
           </div>
         </section>
