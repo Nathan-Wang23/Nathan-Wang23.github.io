@@ -189,25 +189,6 @@ class Middle extends React.Component {
 
 
   render() {
-    console.log(this.state.page)
-    const responsiveOptions = [
-      {
-        breakpoint: '70vw',
-        numVisible: 10,
-        numScroll: 1
-      },
-      {
-        breakpoint: '70vw',
-        numVisible: 2,
-        numScroll: 1
-      },
-      {
-        breakpoint: '70vw',
-        numVisible: 1,
-        numScroll: 1
-      }
-    ];
-
     const openResume = () => {
       window.open('photos/resume.pdf', '_blank');
     }
@@ -316,8 +297,7 @@ class Middle extends React.Component {
             <h1 className="prjTit"> Projects and Papers</h1>
             <p style={{fontSize:"2vmin"}}>Hover over an image to enlarge. Make sure to check out my links!</p>
               <div className="card-container">
-                <Carousel value={projects} numVisible={1} numScroll={1} className="custom-carousel" circular
-                responsiveOptions={responsiveOptions} itemTemplate={projectTemplate}/>
+                <Carousel value={projects} numVisible={1} numScroll={1} className="custom-carousel" circular itemTemplate={projectTemplate}/>
               </div>
           </div>
         </section>
