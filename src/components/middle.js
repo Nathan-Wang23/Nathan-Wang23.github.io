@@ -185,6 +185,7 @@ class Middle extends React.Component {
     }, () => {
       window.addEventListener('scroll', (e) => this.listenScrollEvent(e));
     });
+
   }
 
 
@@ -297,7 +298,7 @@ class Middle extends React.Component {
             <h1 className="prjTit"> Projects and Papers</h1>
             <p style={{fontSize:"2vmin"}}>Hover over an image to enlarge. Make sure to check out my links!</p>
               <div className="card-container">
-                <Carousel value={projects} numVisible={1} numScroll={1} className="custom-carousel" circular itemTemplate={projectTemplate}/>
+                <Carousel value={projects} page={0} numVisible={1} numScroll={1} className="custom-carousel" circular tab itemTemplate={projectTemplate}/>
               </div>
           </div>
         </section>

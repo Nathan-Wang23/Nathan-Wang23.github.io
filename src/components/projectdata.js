@@ -115,16 +115,6 @@ export const projects = [
       imgLarge: ["project_images/RoboticPerception/roboticperception2d_large.png", "project_images/RoboticPerception/droneperception3d_large.png"],
       movie: "ONE",
       other: ""
-  },
-  {
-    index: "1",
-    title: "Intelligent Digital Communications VIP Research",
-    description: "The Intelligent Digital Communications research group's ongoing project aims to create a smart, adaptive wireless bandwidth allocation system. My work primarily focuses on machine learning pipelines for real-time wireless signal classifications and data preprocessing, which we published our paper, 'Cognitive Wireless Networks: Research, Applications, and Testbed' to the 2023 IEEE conference.\n\nWe created multi-model deep neural networks while making use of digital signal processing and embedded systems knowledge. Additionally, we were inspired by differentiable network architecture search algorithms like DARTS to use Resnet building blocks with an embedding to map this discrete search space to a continuous one. From there, we utilize a recurrent neural network to select the best backbone for our task. \n\nPrior to this, we had to handle complex FC32 data, which I filtered, labeled, and wrote code to automate the creation of datasets. We worked with Faraday cage data, drone data, and real stadium recordings with added random white gaussian noise at varying signal to noise ratios in order to properly experiment and robustly train our wireless classification.",
-    paper: "project_images/VIP/IDC_Paper.pdf",
-    img: ["project_images/VIP/abstract_vip.png", "project_images/VIP/location.png"],
-    imgLarge: ["project_images/VIP/abstract_vip_large.png", "project_images/VIP/location_large.png"],
-    movie: "",
-    other: ""
   }
   ];
 
