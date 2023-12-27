@@ -30,7 +30,7 @@ let sty = {
 class Middle extends React.Component {
   state = {
     page: 0,
-    pages: ["home", "about", "experience", "projects", "contact"],
+    pages: ["home", "about", "experience", "projects", "certs", "contact"],
     pageValues: {},
     showHonors: false
   }
@@ -70,13 +70,8 @@ class Middle extends React.Component {
     let halfway = aboutPageHeight / 2
     let ratio = 90 / halfway
 
-
-    let total_height = this.state.pageValues[4][2]
-    let difff = -1.0 * delta / total_height
-    let elevator_percent = parseFloat(sty.marginLeft.slice(0, -1)) + difff
-    console.log(elevator_percent)
-
-    if (vert >= 0 && vert < this.state.pageValues[4][2]) {
+    if (vert >= 0 && vert < this.state.pageValues[5][2]) {
+      console.log(vert)
       if (vert >= this.state.pageValues[0][1] && vert < this.state.pageValues[0][2]) {
         this.setState({
           page: 0
@@ -85,7 +80,6 @@ class Middle extends React.Component {
           name.className = "cont"
           headText.className = "nameTitle"
         }
-
       } else if (vert >= this.state.pageValues[1][1] && vert < this.state.pageValues[1][2]) {
         this.setState({
           page: 1
@@ -117,18 +111,17 @@ class Middle extends React.Component {
         if (name != null && headText != null) {
           name.className = "none"
           headText.className = "none"
-        }}
-      //} else if (vert >= this.state.pageValues[5][1] && vert < this.state.pageValues[5][2]) {
-      //  this.setState({
-      //    page: 5
-      //  });
-      //  if (name != null && headText != null) {
-      //    name.className = "none"
-      //    headText.className = "none"
-      //  }
-      //}
+        }
+      } else if (vert >= this.state.pageValues[5][1] && vert < this.state.pageValues[5][2]) {
+        this.setState({
+          page: 5
+        });
+        if (name != null && headText != null) {
+          name.className = "none"
+          headText.className = "none"
+        }
+      }
     }
-
 
     if (vert >= aboutBegin - aboutPageHeight/2 && vert < aboutBegin + aboutPageHeight/2) {
       let x = 0
@@ -182,10 +175,11 @@ class Middle extends React.Component {
     for (let i = 0; i < this.state.pages.length; i++) {
       let current = this.state.pages[i]
       let pageHeight = document.getElementById(current).getBoundingClientRect().height;
-      page_dict[i] = [current, begin-50, pageHeight+begin-50]
+      console.log(current)
+      console.log(pageHeight)
+      page_dict[i] = [current, begin-54, pageHeight+begin-54]
       begin += pageHeight
     }
-
     this.setState({
       pageValues: page_dict
     }, () => {
@@ -195,6 +189,7 @@ class Middle extends React.Component {
 
 
   render() {
+    console.log(this.state.page)
     const responsiveOptions = [
       {
         breakpoint: '70vw',
@@ -271,7 +266,6 @@ class Middle extends React.Component {
       );
     };
 
-
     return (
       <div>
         <main>
@@ -286,7 +280,6 @@ class Middle extends React.Component {
         </section>
 
         <section id="about">
-          {/*<div className="AboutBlur"></div>*/}
             <div className='AboutTitle'>
               <h1> About Me </h1>
               <div className='about-content'>
@@ -294,46 +287,26 @@ class Middle extends React.Component {
                   <img style={{...sty}} alt="profile" src="photos/profile.jpeg"></img>
                 </div>
                 <div className='textRight'>
-                  <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning. I'm a Georgia Tech graduate with a Bachelors in Computer Science and a Masters in Machine Learning and I love to pursue research and projects that fascinate me. I'm enthusiastic about delving into innovative concepts and developing ground-breaking applications that can help people, catalyze businesses, and do wonderfully creative tasks. Make sure to check out my Projects section. I've shared a collection of my own favorite applications and research papers.</p>
+                  <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning.</p>
+                  <p>I'm a Georgia Tech graduate with a Bachelors in Computer Science and a Masters in Machine Learning and I rigorously pursue research and projects that fascinate me.</p>
+                  <p>I'm eager to explore novel ideas and create revolutionary applications aimed at providing for communities, facilitating business growth, and achieving high-reaching goals.</p>
+                  <p style={{marginBottom:"0px"}}>Make sure to check out my Projects Section. I've shared a collection of my own favorite applications and research papers.</p>
+                  <br/>
+                  <h2>Georgia Institute of Technology</h2>
+                  <p> — Bachelor of Science, Computer Science Degree: May 2023</p>
+                  <p> — Masters of Science, Computer Science Degree: May 2024</p>
                   <p>Still curious? <button onClick={openResume}>View my resume</button></p>
-                  <h3>Georgia Institute of Technology</h3>
-                  <p>Bachelor of Science, Computer Science Degree: May 2023</p>
-                  <p>Masters of Science, Computer Science Degree: May 2024</p>
                 </div>
             </div>
           </div>
 
         </section>
 
-
-        {/*<section id="resume">
-          <div className="ResumeTitle">
-            <h1> Resume </h1>
-            <div className="resume-content">
-              <div className='resume-content'>
-                <img alt="resume_nathan" src='photos/resume.png' id="resume-image"></img>
-                <br/>
-              </div>
-              </div>
-            </div>
-        </section>*/}
-
         <section id="experience">
           <div className="ExperienceTitle">
             <h1> Experience </h1>
-              <h4>Internships</h4>
               <ExperienceCard job="CSA Intern at Amazon Web Services" date="May 2023 — August 2023" details="During my internship at AWS, I actively contributed to delivering top-tier cloud solutions for clients, emphasizing security and fault tolerance. My responsibilities primarily centered on devising and implementing optimal cloud architecture designs aligned with client requirements. I seamlessly integrating essential components through meticulous coding. This involved crafting solutions for S3 replication and implementing sophisticated IAM credential management systems with AWS CDKs. Engaging in these projects necessitated an adept use of Linux systems and leveraging AWS tools to architect, fine-tune, and rectify components that incorporate a suite of AWS services. I implemented multi-faceted features encompassing services like Lambda, EC2, S3, SageMaker, and others. On a daily basis, I dealt with complex infrastructures and designed for peak performance and scalability."></ExperienceCard>
-              <ExperienceCard job="SWE Intern at Machinify Inc." date="May 2021 — August 2021" details="Worked closely with senior developers to implement new features and enhance existing functionality
-Developed user-friendly interfaces and improved the overall user experience of the company's software products
-Conducted extensive testing and debugging to identify and resolve software defects"></ExperienceCard>
-              <div>
-                <h4>Certifications and Awards</h4>
-                <img className="credit" src="photos/SAA.png" alt="Solutions Architect Associate" onClick={this.handleSAA}></img>
-                <img className="credit" src="photos/CCP.png" alt="Certified Cloud Practitioner" onClick={this.handleCCP}></img>
-                <img className="course" src="photos/coursera.png" alt="ML Coursera" onClick={this.handleML}></img>
-                <img className="honors" src="photos/honors.png" alt="Faculty Honors" onClick={this.handleHonors}></img>
-                <Honors title="Faculty Honors" date="Achieved for Fall and Spring semesters 2020 to 2023." content="This designation is awarded to undergraduate students who have earned a perfect 4.0 academic average for the semester." toggleModal={this.handleHonors} isOpen={this.state.showHonors}></Honors>
-              </div>
+              <ExperienceCard job="SWE Intern at Machinify Inc." date="May 2021 — August 2021" details="I collaborated closely with senior developers and data scientists to implement new features and enhance existing functionality within their machine learning pipeline. More specifically, I implemented secure SQL querying and handling, as well as built new API endpoints, for data processing and visualization within their website. My work expanded on my understanding of React and Java for API endpoint development. In addition, I developed user-friendly interfaces, significantly improving the overall user experience of the company's AI products."></ExperienceCard>
           </div>
         </section>
 
@@ -347,6 +320,19 @@ Conducted extensive testing and debugging to identify and resolve software defec
                 responsiveOptions={responsiveOptions} itemTemplate={projectTemplate}/>
               </div>
           </div>
+        </section>
+
+        <section id="certs">
+            <div className='AwardsTitle'>
+                <h1>Certifications and Awards</h1>
+                <div style={{display: "flex", flexDirection: "row", justifyContent:"center", alignItems:"center"}}>
+                  <img className="credit" src="photos/SAA.png" alt="Solutions Architect Associate" onClick={this.handleSAA}></img>
+                  <img className="credit" src="photos/CCP.png" alt="Certified Cloud Practitioner" onClick={this.handleCCP}></img>
+                </div>
+                <img className="course" src="photos/coursera.png" alt="ML Coursera" onClick={this.handleML}></img>
+                <img className="honors" src="photos/honors.png" alt="Faculty Honors" onClick={this.handleHonors}></img>
+                <Honors title="Faculty Honors" date="Achieved for Fall and Spring semesters 2020 to 2023." content="This designation is awarded to undergraduate students who have earned a perfect 4.0 academic average for the semester." toggleModal={this.handleHonors} isOpen={this.state.showHonors}></Honors>
+            </div>
         </section>
 
 
@@ -370,11 +356,7 @@ Conducted extensive testing and debugging to identify and resolve software defec
           </div>
         </section>
         </main>
-        {this.state.page < this.state.pages.length - 1 &&
-          <footer>
-            <FooterButton arrowType="bi bi-chevron-double-down" id="homeFooter" nextPage={this.state.pages[this.state.page + 1]}> </FooterButton>
-          </footer>
-        }
+
         {this.state.page >= this.state.pages.length - 1 &&
           <footer>
             <FooterButton arrowType="bi bi-chevron-double-up" id="homeFooter" nextPage={this.state.pages[0]}> </FooterButton>

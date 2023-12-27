@@ -24,7 +24,7 @@
   position: sticky;
   top: 0%;
   z-index: 5;
-  border: 1px solid #B3A369;
+  border: 2px solid #B3A369;
   border-radius: 5px;
   padding: 0.5%;
   margin-left: 5%;
@@ -33,7 +33,7 @@
 }
 
 .navbutton:hover {
-  background-color: #B3A369;
+  background-color: #d9d1b4;
   text-align: center;
   display: inline-flex;
   justify-content: space-around;
@@ -44,7 +44,7 @@
   position: sticky;
   top: 0%;
   z-index: 5;
-  border: 1px solid #B3A369;
+  border: 2px solid #002233;
   border-radius: 5px;
   padding: 0.5%;
   margin-left: 5%;
