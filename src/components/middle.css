@@ -1,7 +1,7 @@
   #home {
-    height: 100vh;
+    height: auto;
     border: 4px solid #F9F6E5;
-    background-color: #002233;
+    background-color: #61bfee;
   }
   #about {
     height: auto;
@@ -47,16 +47,11 @@
     background-color: #002233;
   }
 
-  /*#profile {
-    height:40vh;
-    width: 30vh;
-    border: 4px solid #F9F6E5;
-    border-radius: 5%;
-  }*/
 
   .AppHeader {
     background-image: url('../../public/photos/nathan_back.jpeg');
-    background-size: 100%;
+    background-size: cover;
+    background-position: center top 10%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -131,9 +126,8 @@
     grid-template-columns: 0.75fr 1fr;
     column-gap: 5px;
     align-items: center;
-    font-size: calc(2.7vmin);
+    font-size: 1.4vw;
     color: #F9F6E5;
-    margin-top: -3vh;
     margin-bottom: 5vh;
   }
 
@@ -144,6 +138,7 @@
     float: left;
     text-align: left;
     margin-right: 10vw;
+    flex:2;
   }
 
 .ExperienceTitle {
@@ -328,8 +323,9 @@
   }
 
 .card-container {
-  height: 80vh;
-  width:70vw;
+  height: auto;
+  width: auto;
+  max-width: 70vw;
   justify-content: center;
   align-items: center;
   z-index: 1;
@@ -347,6 +343,7 @@
   font-size: 1vmin;
   color: #002233;
   height: 70vh;
+  width:auto;
   max-width: 80vw;
   background-color: rgba(249, 246, 229, 1);
   border-radius: 10px;
@@ -355,7 +352,6 @@
   margin-right: 3vw;
   margin-bottom: 10px;
 }
-
 
 
 .sidePiece {
@@ -450,3 +446,33 @@
   flex-direction: 'column'
 }
 
+.imageLeft {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.mobileOnly {
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #F9F6E5;
+  border-radius: 5%;
+}
+
+.mobile-container {
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-container {
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}

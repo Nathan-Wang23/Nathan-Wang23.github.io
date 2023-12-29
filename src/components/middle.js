@@ -13,12 +13,12 @@ import { GlassMagnifier } from '@datobs/react-image-magnifiers';
 var lastY = 0
 
 let sty = {
-  height: "70vh",
-  width: "50vh",
+  height: "80%",
+  width: "60%",
   float: "left",
-  marginTop: "10px",
-  marginBottom: "10px",
-  marginRight: "10px",
+  marginTop: "5%",
+  marginBottom: "5%",
+  marginRight: "5%",
   marginLeft: "-70%",
   justifyContent: "center",
   alignItems: "center",
@@ -130,19 +130,19 @@ class Middle extends React.Component {
         x = ratio * delta * -1.0
       }
       let newPercentage = parseFloat(sty.marginLeft.slice(0,-1)) + x
-      if (newPercentage > 90) {
-        newPercentage = 90.0
+      if (newPercentage > 120) {
+        newPercentage = 120.0
       }
-      if (newPercentage < -50) {
-        newPercentage = -50.0
+      if (newPercentage < -70) {
+        newPercentage = -70.0
       }
       sty = {
-        height: "70vh",
-        width: "50vh",
+        height: "80%",
+        width: "60%",
         float: "left",
-        marginTop: "10px",
-        marginBottom: "10px",
-        marginRight: "10px",
+        marginTop: "5%",
+        marginBottom: "5%",
+        marginRight: "5%",
         marginLeft: `${newPercentage}%`,
         justifyContent: "center",
         alignItems: "center",
@@ -151,13 +151,13 @@ class Middle extends React.Component {
       };
     } else if ((vert < aboutBegin - aboutPageHeight/2 || vert >= aboutBegin + aboutPageHeight/2)){
       sty = {
-        height: "70vh",
-        width: "50vh",
+        height: "70%",
+        width: "50%",
         float: "left",
-        marginTop: "10px",
-        marginBottom: "10px",
-        marginRight: "10px",
-        marginLeft: '-70%',
+        marginTop: "5%",
+        marginBottom: "5%",
+        marginRight: "5%",
+        marginLeft: "-70%",
         justifyContent: "center",
         alignItems: "center",
         border: "4px solid #F9F6E5",
@@ -264,26 +264,28 @@ class Middle extends React.Component {
         </section>
 
         <section id="about">
-            <div className='AboutTitle'>
-              <h1> About Me </h1>
-              <div className='about-content'>
-                <div className="imageLeft">
-                  <img style={{...sty}} alt="profile" src="photos/profile.jpeg"></img>
-                </div>
-                <div className='textRight'>
-                  <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning.</p>
-                  <p>I'm a Georgia Tech graduate with a Bachelors in Computer Science and a Masters in Machine Learning and I rigorously pursue research and projects that fascinate me.</p>
-                  <p>I'm eager to explore novel ideas and create revolutionary applications aimed at providing for communities, facilitating business growth, and achieving high-reaching goals.</p>
-                  <p style={{marginBottom:"0px"}}>Make sure to check out my Projects Section. I've shared a collection of my own favorite applications and research papers.</p>
-                  <br/>
-                  <h2>Georgia Institute of Technology</h2>
-                  <p> — Bachelor of Science, Computer Science Degree: May 2023</p>
-                  <p> — Masters of Science, Computer Science Degree: May 2024</p>
-                  <p>Still curious? <button onClick={openResume}>View my resume</button></p>
-                </div>
+          <div className='AboutTitle'>
+            <h1> About Me </h1>
+            <div className='about-content'>
+              <div className="imageLeft">
+                <img style={{...sty}} alt="profile" src="photos/profile.jpeg"></img>
+              </div>
+              <div className='textRight'>
+                <p>Hey there! I'm a software engineer from Cupertino, California. I specialize in full-stack development, cloud services, and machine learning.</p>
+                <p>I'm a Georgia Tech graduate with a Bachelors in Computer Science and a Masters in Machine Learning and I rigorously pursue research and projects that fascinate me.</p>
+                <p>I'm eager to explore novel ideas and create revolutionary applications aimed at providing for communities, facilitating business growth, and achieving high-reaching goals.</p>
+                <p style={{marginBottom:"0px"}}>Make sure to check out my Projects Section. I've shared a collection of my own favorite applications and research papers.</p>
+                <br/>
+                <h2>Georgia Institute of Technology</h2>
+                <p> — Bachelor of Science, Computer Science Degree: May 2023</p>
+                <p> — Masters of Science, Computer Science Degree: May 2024</p>
+                <p>Still curious? <button onClick={openResume}>View my resume</button></p>
+              </div>
+            </div>
+            <div className='mobile-container'>
+              <img className='mobileOnly' src="photos/mobile.jpeg" alt="mobile_only"></img>
             </div>
           </div>
-
         </section>
 
         <section id="experience">

@@ -5,9 +5,8 @@
     top: 0;
     z-index: 6;
     background-color: #F9F6E1;
-    /*background: linear-gradient(180deg; rgba(236;236;236;1) 0%; rgba(255;255;248;1) 50%; rgba(236;236;236;1) 100%);*/
     padding: 1%;
-    height: 5vh;
+    height: auto;
     align-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
@@ -19,57 +18,27 @@
   justify-content: space-around;
   list-style: none;
   flex-direction: row;
-  font-size: calc(1px + 2vmin);
+  font-size: calc(1.2vw);
   color: #002233;
   position: sticky;
   top: 0%;
-  z-index: 5;
   border: 2px solid #B3A369;
   border-radius: 5px;
-  padding: 0.5%;
+  padding: 0.5vw;
   margin-left: 5%;
   margin-right: 5%;
   cursor: default;
+  max-width: 100%;
 }
 
 .navbutton:hover {
   background-color: #d9d1b4;
-  text-align: center;
-  display: inline-flex;
-  justify-content: space-around;
-  list-style: none;
-  flex-direction: row;
-  font-size: calc(1px + 2vmin);
-  color: #002233;
-  position: sticky;
-  top: 0%;
-  z-index: 5;
   border: 2px solid #002233;
-  border-radius: 5px;
-  padding: 0.5%;
-  margin-left: 5%;
-  margin-right: 5%;
   cursor: pointer;
 }
 
 .navbuttonSelected {
   background-color: #B3A369;
-  text-align: center;
-  display: inline-flex;
-  justify-content: space-around;
-  list-style: none;
-  flex-direction: row;
-  font-size: calc(1px + 2vmin);
-  color: #002233;
-  position: sticky;
-  top: 0%;
-  z-index: 5;
   border: 2px solid #002233;
-  border-radius: 5px;
-  padding: 0.5%;
-  margin-left: 5%;
-  margin-right: 5%;
   cursor: default
 }
-
-
