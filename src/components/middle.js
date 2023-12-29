@@ -188,6 +188,7 @@ class Middle extends React.Component {
       console.log("plink")
       firstPlink.click();
     }
+    console.log(page_dict)
   }
 
 
