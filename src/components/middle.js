@@ -282,9 +282,6 @@ class Middle extends React.Component {
                 <p>Still curious? <button onClick={openResume}>View my resume</button></p>
               </div>
             </div>
-            <div className='mobile-container'>
-              <img className='mobileOnly' src="photos/mobile.jpeg" alt="mobile_only"></img>
-            </div>
           </div>
         </section>
 

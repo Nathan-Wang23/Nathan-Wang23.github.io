@@ -452,29 +452,3 @@
   flex: 1;
 }
 
-.mobileOnly {
-  justify-content: center;
-  align-items: center;
-  border: 4px solid #F9F6E5;
-  border-radius: 5%;
-}
-
-.mobile-container {
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  display: none;
-  height: 0;
-  width: 0;
-}
-
-@media (max-width: 768px) {
-  .mobile-container {
-    justify-content: center;
-    align-items: center;
-    visibility: visible;
-    display: flex;
-    width: 30%;
-    height: 40%;
-  }
-}
