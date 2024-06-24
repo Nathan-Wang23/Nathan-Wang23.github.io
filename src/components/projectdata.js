@@ -115,6 +115,16 @@ export const projects = [
       imgLarge: ["project_images/RoboticPerception/roboticperception2d_large.png", "project_images/RoboticPerception/droneperception3d_large.png"],
       movie: "ONE",
       other: ""
+   },
+   {
+    index: "13",
+    title: "Predicting Biodegradability and Generating Biodegradabile Molecules with WGAN and RGCN VGAEs",
+    description: "Many environmental challenges can be attributed to types of materials, such as plastics and their polymer components, and their corresponding toxicity and biodegradability. New materials need to be innovated, but the process of doing so manually in labs becomes extremely expensive and time-intensive. This paper explores advanced machine learning models, including specialized Wasserstein Generative Adversarial Networks and Variational Graph Autoencoders (VGAE), to create new molecular structures, trained on a dataset of various existing molecules and their corresponding biodegradability information. These models will be able to generate new molecular structures that can be used for materials that are stable and possess qualities that are more environmentally safe. Code for our project can be found at https://github.com/Nathan-Wang23/MLC_Final_Project. \n\n Our research focused on the prediction and generation of biodegradable molecules using advanced generative and classification models. By leveraging a Relational Graph Convolutional Network (RGCN) architecture, our Biodegradability model achieved a balanced accuracy of 0.8478, surpassing the state-of-the-art Generalized Convolutional Network (GCN) model, which scored 0.84 across the same dataset. This improvement demonstrates our model's precision and specificity, crucial for robustly and accurately predicting biodegradability in molecules​​ given just the chemical structures.\n\nWe conducted extensive experiments and latent space conditioning to refine both our WGAN and VGAE models. Our primary metrics for evaluation included validity, novelty, and uniqueness of the generated molecules. Initial experiments highlighted challenges in generating molecules with an appropriate atom count, leading to adjustments in the loss regularizer to balance molecular complexity and generation validity. These experiments resulted in a notable uniqueness increase from 30% to 61%, maintained a 70% validity rate and 88% novelty rate, but further improvements are needed to enhance overall validity and biodegradability​ of generation through better feature conditioning in the latent space. More specifically, we want to explore the possibility of using distance based or extended connectivity fingerprints featurizers, as well as measuring electron density with a Gaussian Multipole featurizer.",
+    paper: "project_images/MLC/VGAE.pdf",
+    img: ["project_images/MLC/abstract_mlc.png"],
+    imgLarge: ["project_images/MLC/abstract_mlc_large.png"],
+    movie: "ONE",
+    other: "https://github.com/Nathan-Wang23/MLC_Final_Project"
   }
   ];
 

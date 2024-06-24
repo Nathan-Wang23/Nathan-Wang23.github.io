@@ -12,8 +12,8 @@ import { GlassMagnifier } from '@datobs/react-image-magnifiers';
 var lastY = 0
 
 let sty = {
-  height: "70vh",
-  width: "50vh",
+  height: "52vh",
+  width: "38vh",
   float: "left",
   marginTop: "10px",
   marginBottom: "10px",
@@ -135,8 +135,8 @@ class Middle extends React.Component {
         newPercentage = -50.0
       }
       sty = {
-        height: "70vh",
-        width: "50vh",
+        height: "52vh",
+        width: "38vh",
         float: "left",
         marginTop: "10px",
         marginBottom: "10px",
@@ -149,8 +149,8 @@ class Middle extends React.Component {
       };
     } else if ((vert < aboutBegin - aboutPageHeight / 2 || vert >= aboutBegin + aboutPageHeight / 2)) {
       sty = {
-        height: "70vh",
-        width: "50vh",
+        height: "52vh",
+        width: "38vh",
         float: "left",
         marginTop: "10px",
         marginBottom: "10px",

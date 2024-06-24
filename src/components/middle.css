@@ -405,7 +405,9 @@
   }
 
   .paper-button {
-    border: 1px solid #002233
+    border: 1px solid #002233;
+    height:max-content;
+    font-size: small;
   }
 
   .projMov {
